@@ -17,23 +17,24 @@ app.use(express.static("public"));
 
 
 app.get("/",function(req, res){
-
   res.render("home",{value: homeStartingContent});
 });
 
 app.get("/about", function(req, res){
-
   res.render("about", {value: aboutContent});
 });
 
 app.get("/contact", function(req, res){
-
   res.render("contact", {value: contactContent});
 });
 
 app.get("/compose", function(req, res){
-
   res.render("compose");
+});
+
+app.post("/compose", function(req, res){
+  console.log(req.body.value);
+  // res.redirect("/compose");
 });
 
 app.listen(3000, function() {
